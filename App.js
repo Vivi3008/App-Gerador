@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import Slider from '@react-native-community/slider'
+import password from 'secure-random-password'
 
 const App = () => {
     const [password, setPassword] = useState(123456)
     const [caracters, setCaracters] = useState(8)
 
     function generatePass(caracters) {
-        let passwordGenerated = Math.floor(Math.random() * caracters)
+       const passwordGenerated = password.randomPassword({length: caracters, characters: password.digits})
         setPassword(passwordGenerated)
     }
 
